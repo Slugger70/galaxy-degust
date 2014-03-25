@@ -1,0 +1,64 @@
+<tool id="degust" name="Degust" version="1.0.0">
+    <description>RNA Seq analysis and visualisation.</description>
+    <command interpreter="python">
+        degust.py
+        --tab
+        $cuffdiff
+        $dataset
+        > 
+        $output
+    </command>
+    <inputs>
+        <param name="dataset" type="data" format="tabular" label="Cuffdiff gene/transcript expression testing output" help="Cuffdiff output to visualise."/>
+        <param name="cuffdiff" type="boolean" truevalue="--cuffdiff" falsevalue="" checked="true" label="Cuffdiff output" help="Is this cuffdiff output?"/>
+    </inputs>
+    <outputs>
+        <data name="output" format="html" label="${tool.name} on ${on_string}: html"/>
+    </outputs>
+    
+    <help>
+**Degust**
+RNA Seq analysis and visualisation.
+
+Written by David Powell - Victorian Bioinformatics Consortium 2012 - 2014
+
+Wrapped by Simon Gladman - Victorian Bioinformatics Consortium 2014
+
+0.11.2
+------
+
+Outputs in html format.
+    
+------
+
+Inputs:
+
+Gene differential expression dataset
+
+------
+
+# Degust (formerly known as DGE-Vis)
+
+* Visualise RNA-seq differential expression data.
+* Perform your own DGE analysis to analyse from your own "counts" file.
+
+Access a public web service running [Degust](http://www.vicbioinformatics.com/degust).
+
+View a [short video](https://www.youtube.com/watch?v=ucucQ_LtZ1g) of the interface in use.
+
+Read a summary on the Degust home page (http://victorian-bioinformatics-consortium.github.io/degust/).
+
+
+## Contributing ##
+Feel free to contribute with pull requests, bug reports or enhancement suggestions.
+
+## Known Issues
+
+#### Heatmap 
+
+  * Clustering algorithm is naive greedy N^2.  So, not fast, and not a great clustering. 
+
+## License ##
+Degust is released under the GPL v3 (or later) license, see http://github.com/Victorian-Bioinformatics-Consortium/degust/blob/master/COPYING.txt
+    </help>
+</tool>
